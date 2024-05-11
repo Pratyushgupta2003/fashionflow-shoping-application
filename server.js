@@ -9,6 +9,7 @@ import categoryRoute from "./routes/categoryRoute.js";
 import productRoute from "./routes/productRoute.js";
 import path from 'path';
 import { fileURLToPath } from "url";
+import userRoute from "./routes/userRoute.js"
 //configure env
 dotenv.config();
 
@@ -32,7 +33,7 @@ app.use(express.static(path.join(__dirname,'./client/dist')))
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoute);
 app.use("/api/v1/product", productRoute);
-
+app.use("/api/v1/user", userRoute);
 app.use('*' , function(req,res){
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 })
